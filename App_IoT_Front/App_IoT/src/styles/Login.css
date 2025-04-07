@@ -1,0 +1,315 @@
+:root {
+    --primary-color: #3182ce;
+    --primary-dark: #2c5282;
+    --background-dark: #020b2d;
+    --text-dark: #2d3748;
+    --text-medium: #4a5568;
+    --text-light: #718096;
+    --error-color: #e53e3e;
+    --border-color: #e2e8f0;
+    --light-bg: #f8fafc;
+  }
+  
+  /* Estilos generales */
+  .auth-container {
+    display: flex;
+    min-height: 100vh;
+    background-color: var(--background-dark);
+  }
+  
+  .form-section {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem;
+    background-color: white;
+    max-width: 700px;
+    animation: fadeIn 0.3s ease-out;
+  }
+  
+  .illustration-section {
+    flex: 1;
+    background-image: url("../assets/login-bg.png");
+    background-position: center;
+    background-size: cover;
+    position: relative;
+    display: none;
+  }
+  
+  .illustration-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+  }
+  
+  /* Card de formulario */
+  .form-container {
+    width: 100%;
+    max-width: 400px;
+    padding: 1.8rem;
+    border-radius: 10px;
+    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.08);
+    margin: 1rem;
+  }
+  
+  .logo {
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: var(--primary-dark);
+    margin-bottom: 1rem;
+    text-align: center;
+  }
+  
+  .form-title {
+    font-size: 1.2rem;
+    color: var(--text-dark);
+    margin-bottom: 1rem;
+    text-align: center;
+    font-weight: 600;
+  }
+  
+  .input-group {
+    margin-bottom: 1rem;
+  }
+  
+  .input-group label {
+    display: block;
+    margin-bottom: 0.2rem;
+    color: var(--text-medium);
+    font-size: 0.9rem;
+    font-weight: 500;
+  }
+  
+  .input-group input {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    font-size: 0.9rem;
+    transition: all 0.25s ease;
+    background-color: var(--light-bg);
+  }
+  
+  .input-group input:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 2px rgba(49, 130, 206, 0.1);
+    background-color: white;
+  }
+  
+  .submit-button {
+    width: 100%;
+    padding: 0.75rem;
+    background: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.25s ease;
+    margin-top: 0.5rem;
+  }
+  
+  .submit-button:hover {
+    background: var(--primary-dark);
+  }
+  
+  .auth-links {
+    text-align: center;
+    margin-top: 1.2rem;
+    font-size: 0.9rem;
+    color: var(--text-light);
+  }
+  
+  .auth-links a {
+    color: var(--primary-color);
+    text-decoration: none;
+    font-weight: 500;
+  }
+  
+  .auth-links a:hover {
+    text-decoration: underline;
+  }
+  
+  .error-message {
+    color: var(--error-color);
+    font-size: 0.85rem;
+    margin: -0.5rem 0 0.8rem 0;
+    padding: 0.5rem;
+    background-color: rgba(229, 62, 62, 0.1);
+    border-radius: 6px;
+    text-align: center;
+  }
+  
+  /* Modal de fecha de nacimiento */
+  .date-modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    backdrop-filter: blur(3px);
+  }
+  
+  .date-modal {
+    background-color: white;
+    border-radius: 12px;
+    padding: 2rem;
+    width: 90%;
+    max-width: 400px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+    animation: modalFadeIn 0.3s ease-out;
+  }
+  
+  .date-modal-header h2 {
+    font-size: 1.4rem;
+    color: var(--text-dark);
+    margin: 0 0 1.5rem 0;
+    text-align: center;
+    font-weight: 600;
+  }
+  
+  .date-input-group {
+    margin-bottom: 1.5rem;
+  }
+  
+  .date-input-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: var(--text-medium);
+    font-size: 0.95rem;
+    font-weight: 500;
+  }
+  
+  .date-input-group input {
+    width: 100%;
+    padding: 0.8rem;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    font-size: 1rem;
+    background-color: var(--light-bg);
+  }
+  
+  .date-modal-actions {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+  }
+
+  /* Estilo específico para el botón Regresar */
+.cancel-button {
+    flex: 1;
+    padding: 0.9rem;
+    background: #f8f9fa;
+    color: #6c757d;
+    border: 1px solid #dee2e6;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 9px;
+    gap: 0.5rem;
+  }
+  
+  .cancel-button:hover {
+    background: #cacccf;
+    border-color: #ced4da;
+  }
+  
+  .modal-cancel-button {
+    flex: 1;
+    padding: 0.8rem;
+    background: #f0f4f8;
+    color: var(--text-medium);
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+  
+  .modal-submit-button {
+    flex: 1;
+    padding: 0.8rem;
+    background: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+  
+  .modal-submit-button:hover {
+    background: var(--primary-dark);
+  }
+  
+  @keyframes modalFadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(-15px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(1px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(1px);
+    }
+  }
+  
+  /* Responsive */
+  @media (min-width: 768px) {
+    .illustration-section {
+      display: block;
+    }
+    
+    .form-container {
+      padding: 2rem;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .form-container {
+      padding: 1.5rem;
+      margin: 0.5rem;
+      box-shadow: none;
+    }
+    
+    .date-modal {
+      padding: 1.5rem;
+      width: 95%;
+    }
+    
+    .date-modal-actions {
+      flex-direction: column;
+    }
+    
+    .modal-cancel-button,
+    .modal-submit-button {
+      width: 100%;
+    }
+  }

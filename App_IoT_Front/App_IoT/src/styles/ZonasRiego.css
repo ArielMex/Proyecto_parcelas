@@ -1,0 +1,181 @@
+.zonas-riego-container {
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  
+  .header-section {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+    gap: 15px;
+  }
+  
+  .controls {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+  }
+  
+  .refresh-btn {
+    padding: 8px 16px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  
+  .refresh-icon {
+    transition: transform 0.3s;
+  }
+  
+  .refresh-icon.spin {
+    animation: spin 1s linear infinite;
+  }
+  
+  @keyframes spin {
+    to { transform: rotate(360deg); }
+  }
+  
+  .refresh-btn:hover:not(:disabled) {
+    background-color: #3e8e41;
+  }
+  
+  .refresh-btn:disabled {
+    background-color: #cccccc;
+    cursor: not-allowed;
+  }
+  
+  .update-time {
+    font-size: 0.9em;
+    color: #666;
+  }
+  
+  .loading-indicator {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 40px;
+  }
+  
+  .spinner {
+    border: 4px solid rgba(0, 0, 0, 0.1);
+    border-left-color: #4CAF50;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    animation: spin 1s linear infinite;
+    margin-bottom: 10px;
+  }
+  
+  .no-results {
+    text-align: center;
+    padding: 40px;
+    background-color: #f8f9fa;
+    border-radius: 8px;
+  }
+  
+  .zonas-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    gap: 20px;
+  }
+  
+  .zona-card {
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    transition: transform 0.3s, box-shadow 0.3s;
+  }
+  
+  .zona-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  }
+  
+  .zona-header {
+    padding: 15px;
+    border-bottom: 1px solid #eee;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .zona-header h3 {
+    margin: 0;
+    font-size: 1.2em;
+    color: #333;
+    display: flex;
+    align-items: center;
+  }
+  
+  .sector {
+    font-size: 0.8em;
+    background-color: #f0f0f0;
+    padding: 2px 6px;
+    border-radius: 4px;
+    margin-left: 8px;
+    color: #666;
+  }
+  
+  .estado {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-weight: 500;
+    padding: 4px 8px;
+    border-radius: 4px;
+  }
+  
+  .estado.descompuesto {
+    color: #d32f2f;
+    background-color: #ffebee;
+  }
+  
+  .estado.mantenimiento {
+    color: #ffa000;
+    background-color: #fff8e1;
+  }
+  
+  .estado.fuera_de_servicio {
+    color: #455a64;
+    background-color: #eceff1;
+  }
+  
+  .icon {
+    font-size: 1.2em;
+  }
+  
+  .zona-details {
+    padding: 15px;
+  }
+  
+  .zona-details p {
+    margin: 8px 0;
+    line-height: 1.4;
+  }
+  
+  .zona-details strong {
+    color: #555;
+  }
+  
+  /* Responsive */
+  @media (max-width: 768px) {
+    .zonas-list {
+      grid-template-columns: 1fr;
+    }
+    
+    .header-section {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+  }
